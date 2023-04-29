@@ -1,24 +1,14 @@
 package it.vincenzopicone.gestioneincendi.model;
 
+import lombok.Data;
+
+
+@Data
+
 public class CentroControlloFactory {
 	
-	private static int selezionaCentroControllo = 0;
-	
 	public static CentroControlloInterface creaCentroControllo() {
-		
-		switch(selezionaCentroControllo) {
-		case 0:
-			return new CentroControlloHttp();
-		default:
-			throw new RuntimeException("Centro controllo non supportato");
-		}
+		return new CentroControllo();
 	}
 	
-	public static int getSelectCentroControllo() {
-		return selezionaCentroControllo;
-	}
-
-	public static void setSelectCentroControllo (int select) {
-		selezionaCentroControllo = select;
-	}
 }
